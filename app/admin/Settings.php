@@ -2,8 +2,6 @@
 
 declare( strict_types=1 );
 
-namespace WpModoGtm\Admin;
-
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -36,6 +34,9 @@ class Settings {
 
 		add_action( 'admin_menu', [ $this, 'admin_menu' ] );
 		add_action( 'admin_init', [ $this, 'settings_init' ] );
+
+		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
+
 	}
 
 	/**
@@ -56,8 +57,17 @@ class Settings {
 	/**
 	 * @return void
 	 */
+	public function enqueue_scripts(): void {
+
+		wp_enqueue_style( 'wp-modo-gtm-settings-page', WP_MODO_GTM_ASSETS_URL . 'css/settings-page.css' );
+
+	}
+
+	/**
+	 * @return void
+	 */
 	public function admin_settings_page(): void {
-		include WP_MODO_GTM_ADMIN_TEMPLATE_PATH . 'settings-page.php';
+		include WP_MODO_GTM_ADMIN_TEMPLATE_PATH . 'admin/settings-page.php';
 	}
 
 	/**
@@ -72,8 +82,8 @@ class Settings {
 
 		add_settings_section(
 			'wp_modo_gtm_settings_section',
-			'Section de réglages personnalisés',
-			array( $this, 'settings_section_callback' ),
+			'',
+			'',
 			'wp-modo-gtm-settings'
 		);
 
@@ -85,13 +95,6 @@ class Settings {
 			'wp_modo_gtm_settings_section'
 		);
 
-	}
-
-	/**
-	 * @return void
-	 */
-	public function settings_section_callback(): void {
-		echo "Renseignez l'identifiant GTM afin d'ajouter le code de tracking sur le site";
 	}
 
 	/**

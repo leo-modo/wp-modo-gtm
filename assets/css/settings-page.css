@@ -1,0 +1,30 @@
+#modo-settings-page {
+  margin: 30px 30px 0 0;
+
+  background: #fff;
+  border: 1px solid #ddd;
+}
+
+#modo-settings-page .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 10px 20px;
+
+  border-bottom: 1px solid #ddd;
+}
+
+#modo-settings-page .content {
+  padding: 20px 20px 0 20px;
+}
+
+#modo-settings-page .content .description {
+  padding: 10px;
+
+  background: #f1f1f1;
+  border-radius: 2px;
+}
+#modo-settings-page .content .description p {
+  margin: 0;
+}

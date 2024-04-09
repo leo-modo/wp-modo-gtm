@@ -2,7 +2,7 @@
 /*
 Plugin Name:    Modo GTM
 Description:    Ce module permet d'ajouter automatiquement le code de tracking GTM dans votre site
-Author:         Léo Fontin
+Author:         Agence Modo - Léo Fontin
 Author URI:     https://agence-modo.fr
 License:        GPL2
 License URI:    https://www.gnu.org/licenses/gpl-2.0.html
@@ -12,32 +12,19 @@ Domain Path:    /languages
 
 declare( strict_types=1 );
 
-namespace WpModoGtm;
-
-use WpModoGtm\Admin\Settings;
-use WpModoGtm\Public\Code;
-
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-require 'vendor/autoload.php';
-
 define( 'WP_MODO_GTM_ROOT', dirname( __FILE__ ) . '/' );
 define( 'WP_MODO_GTM_ADMIN_TEMPLATE_PATH', WP_MODO_GTM_ROOT . 'templates/' );
 
+define( 'WP_MODO_GTM_URL', plugin_dir_url( __FILE__ ) );
+define( 'WP_MODO_GTM_ASSETS_URL', WP_MODO_GTM_URL . 'assets/' );
 
-class WP_Modo_GTM {
+include WP_MODO_GTM_ROOT . 'app/admin/Settings.php';
+include WP_MODO_GTM_ROOT . 'app/public/Code.php';
 
-	public function __construct() {
+Settings::get_instance();
 
-		// Admin //
-		Settings::get_instance();
-
-		// Public //
-		Code::get_instance();
-	}
-
-}
-
-new WP_Modo_GTM();
+Code::get_instance();

@@ -1,0 +1,57 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Modo GTM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-04-09 08:32+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.6.7; wp-6.5\n"
+"X-Domain: wp-modo-gtm"
+
+#. Author of the plugin
+msgid "Agence Modo - Léo Fontin"
+msgstr ""
+
+#: templates/admin/settings-page.php:13
+msgid ""
+"Assurez vous d'avoir les hooks <b>wp_head</b> et <b>wp_body_open</b> dans "
+"votre thème."
+msgstr ""
+
+#. Description of the plugin
+msgid ""
+"Ce module permet d'ajouter automatiquement le code de tracking GTM dans "
+"votre site"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://agence-modo.fr"
+msgstr ""
+
+#. Name of the plugin
+msgid "Modo GTM"
+msgstr ""
+
+#: templates/admin/settings-page.php:12
+msgid ""
+"Pour vous rendre sur le GTM : <a href='https://tagmanager.google.com/' "
+"target='_blank'>Voir le site de GTM</a>"
+msgstr ""
+
+#: templates/admin/settings-page.php:11
+msgid ""
+"Renseignez l'identifiant GTM afin d'ajouter le code de tracking sur le site. "
+"(ex: GTM-123456)"
+msgstr ""
+
+#: templates/admin/settings-page.php:4
+msgid "Réglages GTM"
+msgstr ""
