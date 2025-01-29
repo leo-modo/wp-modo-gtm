@@ -40,10 +40,12 @@ class Code {
 	 */
 	public function add_head_code(): void {
 
-		$gtm_id = $this->get_gtm_id();
-		$file   = WP_MODO_GTM_ADMIN_TEMPLATE_PATH . 'public/code-head.php';
-		if ( file_exists( $file ) ) {
-			include $file;
+		if ( $this->enable_code() ) {
+			$gtm_id = $this->get_gtm_id();
+			$file   = WP_MODO_GTM_ADMIN_TEMPLATE_PATH . 'public/code-head.php';
+			if ( file_exists( $file ) ) {
+				include $file;
+			}
 		}
 	}
 
@@ -51,12 +53,22 @@ class Code {
 	 * @return void
 	 */
 	public function add_body_code(): void {
-
-		$gtm_id = $this->get_gtm_id();
-		$file   = WP_MODO_GTM_ADMIN_TEMPLATE_PATH . 'public/code-body.php';
-		if ( file_exists( $file ) ) {
-			include $file;
+		if ( $this->enable_code() ) {
+			$gtm_id = $this->get_gtm_id();
+			$file   = WP_MODO_GTM_ADMIN_TEMPLATE_PATH . 'public/code-body.php';
+			if ( file_exists( $file ) ) {
+				include $file;
+			}
 		}
+	}
+
+	/**
+	 * @return bool
+	 */
+	private function enable_code(): bool {
+		$option = get_option( 'wp_modo_gtm' );
+
+		return ! empty( $option['enable'] ) && $option['enable'] === 'yes';
 	}
 
 	/**

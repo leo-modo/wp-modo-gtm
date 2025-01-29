@@ -1,8 +1,8 @@
 <?php
 /*
-Plugin Name:    Modo GTM
-Description:    Ce module permet d'ajouter automatiquement le code de tracking GTM dans votre site
-Author:         Agence Modo - Léo Fontin
+Plugin Name:    Modo GTM Injector
+Description:    Easily integrate Google Tag Manager into your WordPress site! With this module, simply enter your GTM ID, and the tracking code is automatically installed. Save time and ensure reliable tracking without any technical hassle.
+Author:         Agence Modo
 Author URI:     https://agence-modo.fr
 License:        GPL2
 License URI:    https://www.gnu.org/licenses/gpl-2.0.html

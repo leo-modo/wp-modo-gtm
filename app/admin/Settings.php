@@ -89,8 +89,16 @@ class Settings {
 
 		add_settings_field(
 			'id',
-			'Identifiant tracking GTM',
-			array( $this, 'field_callback' ),
+			__( "GTM tracking identifier", 'wp-modo-gtm' ),
+			array( $this, 'field_callback_id' ),
+			'wp-modo-gtm-settings',
+			'wp_modo_gtm_settings_section'
+		);
+
+		add_settings_field(
+			'enable',
+			__( "Activate code?", 'wp-modo-gtm' ),
+			array( $this, 'field_callback_enable' ),
 			'wp-modo-gtm-settings',
 			'wp_modo_gtm_settings_section'
 		);
@@ -100,9 +108,36 @@ class Settings {
 	/**
 	 * @return void
 	 */
-	public function field_callback(): void {
+	public function field_callback_id(): void {
 		$option       = get_option( 'wp_modo_gtm' );
 		$option_value = ( ! empty( $option['id'] ) ) ? $option['id'] : '';
+
 		echo '<input type="text" name="wp_modo_gtm[id]" value="' . esc_attr( $option_value ) . '" />';
+	}
+
+	/**
+	 * @return void
+	 */
+	public function field_callback_enable(): void {
+		$option       = get_option( 'wp_modo_gtm' );
+		$option_value = ( ! empty( $option['enable'] ) ) ? $option['enable'] : 'yes';
+
+		$fields = [
+			'yes' => __( "Yes, enable", 'wp-modo-gtm' ),
+			'no'  => __( "No.", 'wp-modo-gtm' ),
+		];
+
+		echo '<ul>';
+
+		foreach ( $fields as $key => $value ) {
+			echo '<li>';
+			echo '<input type="radio" name="wp_modo_gtm[enable]" value="' . esc_attr( $key ) . '" id="enable-'.$key.'"';
+			checked( $option_value, $key );
+			echo ' />';
+			echo '<label for="enable-'.$key.'">' . esc_html( $value ) . '</label>';
+			echo '</li>';
+		}
+
+		echo '</ul>';
 	}
 }
